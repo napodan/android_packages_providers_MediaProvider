@@ -19,7 +19,7 @@ package com.android.providers.media;
 import android.content.Context;
 import android.content.Intent;
 import android.content.BroadcastReceiver;
-import android.hardware.Usb;
+import android.hardware.UsbManager;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -31,9 +31,9 @@ public class UsbReceiver extends BroadcastReceiver
     @Override
     public void onReceive(Context context, Intent intent) {
         Bundle extras = intent.getExtras();
-        boolean connected = extras.getBoolean(Usb.USB_CONNECTED);
-        boolean mtpEnabled = Usb.USB_FUNCTION_ENABLED.equals(
-                extras.getString(Usb.USB_FUNCTION_MTP));
+        boolean connected = extras.getBoolean(UsbManager.USB_CONNECTED);
+        boolean mtpEnabled = UsbManager.USB_FUNCTION_ENABLED.equals(
+                extras.getString(UsbManager.USB_FUNCTION_MTP));
         Log.d(TAG, "USB_CONNECTED: " + connected + " mtpEnabled: " + mtpEnabled);
         if (connected) {
             context.startService(new Intent(context, MtpService.class));
