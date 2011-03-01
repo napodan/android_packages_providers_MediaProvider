@@ -19,7 +19,7 @@ package com.android.providers.media;
 import android.content.Context;
 import android.content.Intent;
 import android.content.BroadcastReceiver;
-import android.hardware.UsbManager;
+import android.hardware.usb.UsbManager;
 import android.os.Bundle;
 import android.util.Log;
 
